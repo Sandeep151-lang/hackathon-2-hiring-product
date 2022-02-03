@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var createProduct = require('./routes/createProduct')
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var payment = require('./routes/payments')
 const cors = require("cors");
@@ -26,7 +26,7 @@ const corsOptions = {
   credentials: true, //included credentials as true
 };
 app.use(cors(corsOptions));
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', payment)
 app.use('/', createProduct);
