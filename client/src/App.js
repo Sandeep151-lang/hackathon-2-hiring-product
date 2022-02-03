@@ -34,7 +34,7 @@ function App() {
   }
 
   //const url = `https://hackathon2-back.herokuapp.com/getProduct`;
-  const url = `http://localhost:5000/getproduct`
+  const url = `/getproduct`
   const userdata = async () => {
     try {
       const d = await axios.get(url);
