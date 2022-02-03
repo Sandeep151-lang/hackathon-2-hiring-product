@@ -55,7 +55,7 @@ const HomePages = () => {
         // console.log(product.children[0].children[0].name)
         //console.log(product.children[0].name);
         // history.push(`/cat/${product.children[0].children[0].name}`)
-        history.push(`cat/${product.name}`)
+        history.push(`/cat/${product.name}`)
     }
     console.log(date)
     useEffect(() => {
@@ -63,7 +63,7 @@ const HomePages = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <div>
+        <>
             <Navbar />
             <Caro />
             <div className='container mt-3'>
@@ -85,7 +85,7 @@ const HomePages = () => {
 
             </div>
             <Footer />
-        </div >
+        </>
     )
 }
 

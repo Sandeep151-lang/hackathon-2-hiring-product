@@ -17,7 +17,7 @@ const AdminDashboard = () => {
 
                 withCredentials: true,
                 credentials: "include",
-            }).get('about')
+            }).get('/about')
             // console.log(res.data.message)
             if (res.status === 200) {
                 localStorage.getItem('jwt');
