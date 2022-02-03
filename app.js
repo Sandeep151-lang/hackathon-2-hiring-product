@@ -33,7 +33,7 @@ app.use('/', createProduct);
 
 
 if (process.env.Mode_Env = "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/"));
   app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
   });
