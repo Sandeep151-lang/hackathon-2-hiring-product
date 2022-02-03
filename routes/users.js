@@ -7,9 +7,6 @@ var jwt = require('jsonwebtoken');
 var orderlist = require('../model/paymentSchema')
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
 
 
 require('./dbConn.js/conn')

@@ -63,7 +63,6 @@ function App() {
     <Router>
       <MyContext.Provider value={{ userdata, onRemove, onAdd, data, cartItems, state, dispatch }}>
         {/* <Navbar /> */}
-        <Route exact path='/' component={HomePages} />
         <Switch>
           <Route exact path='/' component={HomePages} />
           <Route path='/create' component={CreaProduct} />
