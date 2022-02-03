@@ -27,9 +27,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 // app.use('/', indexRouter);
-app.use('/', usersRouter);
-app.use('/', payment)
-app.use('/', createProduct);
 
 
 if (process.env.Mode_Env = "production") {
@@ -40,6 +37,9 @@ if (process.env.Mode_Env = "production") {
 
 }
 
+app.use('/', usersRouter);
+app.use('/', payment)
+app.use('/', createProduct);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
