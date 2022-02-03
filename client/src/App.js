@@ -76,7 +76,7 @@ function App() {
           <Route path='/my-order' component={MyOrder} />
           <Route path='/user/:_id' component={UserOrder} />
           <Route path='/dashboard' component={AdminDashboard} />
-          <Route path="/product/:_id" component={ProductDetails} />
+          <Route path="/products/:_id" component={ProductDetails} />
           <Redirect to="/" />
         </Switch>
       </MyContext.Provider>
