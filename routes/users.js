@@ -59,17 +59,17 @@ router.route('/login').post(async (req, res) => {
 
         console.log(name, email)
         if (!isMatch) {
-          return res.status(400).send({ message: req.json('Login invalid') })
+          return res.status(400).json({ message: 'Invalid' })
         } else {
-          res.json({ token, name, email })
+          return res.json({ token, name, email })
           next()
         }
       } else {
-        res.status(400).json(`error`)
+        return res.status(400).json({ message: 'Invalid' })
       }
     }
   } catch (error) {
-    res.status(400).send({ message: 'error' })
+    return res.status(400).send({ message: 'Invalid' })
   }
 })
 
