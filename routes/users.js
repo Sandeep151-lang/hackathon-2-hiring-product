@@ -56,12 +56,12 @@ router.route('/login').post(async (req, res) => {
           httpOnly: true
         })
         const { name, email } = singin;
-        res.json({ token, name, email })
+
         console.log(name, email)
         if (!isMatch) {
           return res.status(400).send({ message: req.json('Login invalid') })
         } else {
-          return res.status(200).send({ message: req.json('Login Successfull') })
+          res.json({ token, name, email })
           next()
         }
       } else {
