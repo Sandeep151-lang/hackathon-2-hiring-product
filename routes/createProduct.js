@@ -210,8 +210,15 @@ router.delete('/item/:_id', async (req, res) => {
     }
 })
 
+
 router.post('/product', async (req, res) => {
-    const { name, image, product_name, price, description, category, description1, list1, list2, list3 } = req.body
+    const { name, image, product_name, price, description, description1, list1, list2, list3 } = req.body
+    if (!image || !product_name || !price || !description || !description1 || !list1 || !list2 || !list3) {
+        return res.status(400).json('Please fill the required field')
+    }
+    if (!name) {
+        return res.status(400).json('please select category')
+    }
 
     const product = new Product({
         user: req.body._id,
@@ -225,10 +232,11 @@ router.post('/product', async (req, res) => {
         list2: list2,
         list3: list3
     })
+
     product.save((error, product) => {
-        if (error) return res.status(400).json(Error);
+        if (error) return res.status(400).json('Product Not Created');
         if (product) {
-            return res.status(201).json(product)
+            return res.status(201).json("Product Created")
         }
     });
 })
