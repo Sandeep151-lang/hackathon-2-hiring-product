@@ -44,18 +44,22 @@ const About = () => {
         return <LoadingSpinner />
     } else {
         return (
-            <div className='w3-container'>
+            <>
                 <Navbar />
-                <h1 className="text-center">Admin Details</h1>
 
-                <div className="container mt-5" style={{ "width": "80%", "height": "70%" }}>
-                    <Card>
-                        <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Name :</span> <span className="text-center text-dark" style={{ 'fontSize': '19px' }}>{data.name}</span></p>
-                        <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Email_id :</span> <span className="text-dark" style={{ 'fontSize': '19px' }}>{data.email}</span></p>
-                        <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Role : </span><span className="text-dark" style={{ 'fontSize': '19px' }}>{data.role}</span></p>
-                    </Card>
+                <div className='w3-container'>
+
+                    <h1 className="text-center">Admin Details</h1>
+
+                    <div className="container mt-5" style={{ "width": "80%", "height": "70%" }}>
+                        <Card>
+                            <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Name :</span> <span className="text-center text-dark" style={{ 'fontSize': '19px' }}>{data.name}</span></p>
+                            <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Email_id :</span> <span className="text-dark" style={{ 'fontSize': '19px' }}>{data.email}</span></p>
+                            <p className="font-weight-bold py-2 mx-3"><span style={{ 'fontWeight': 'bold', 'fontSize': '25px' }}>Role : </span><span className="text-dark" style={{ 'fontSize': '19px' }}>{data.role}</span></p>
+                        </Card>
+                    </div>
                 </div>
-            </div>
+            </>
         )
     }
 }

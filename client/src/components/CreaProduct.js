@@ -1,48 +1,72 @@
-import React, { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import axios from 'axios';
+import React, { useState } from 'react';
+import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Navbar';
-
 import { Redirect } from 'react-router-dom';
 
-const CreaProduct = () => {
-    const [buy, setbuy] = useState({
-        name: '',
-        image: '',
-        product_name: '',
-        price: '',
-        description: '',
-        description1: '',
-        list1: '',
-        list2: '',
-        list3: ''
-    })
+const CreateNewProducts = () => {
 
-    const buyProduct = (e) => {
-        const name = e.target.id;
-        setbuy({ ...buy, [name]: e.target.value });
+    const [name, setcategory] = useState('');
+    const [image, setimage] = useState('');
+    const [product_name, setproductName] = useState('');
+    const [price, setprice] = useState('');
+    const [description, setdesc] = useState('');
+    const [description1, setdesc1] = useState('');
+    const [list1, setlist1] = useState('');
+    const [list2, setlist2] = useState('')
+    const [list3, setlist3] = useState('')
+
+    const category = (e) => {
+        setcategory(e.target.value)
     }
 
+    const ImageFunc = (e) => {
+        setimage(e.target.value)
+    }
 
-    const buy_Product = async (e) => {
-        // e.preventDefault();
+    const ProductNameFunc = (e) => {
+        setproductName(e.target.value)
+    }
+
+    const PriceFunc = (e) => {
+        setprice(e.target.value)
+    }
+
+    const DescFunc = (e) => {
+        setdesc(e.target.value)
+    }
+
+    const DescFunc1 = (e) => {
+        setdesc1(e.target.value)
+    }
+
+    const ProdList1 = (e) => {
+        setlist1(e.target.value)
+    }
+
+    const ProdList2 = (e) => {
+        setlist2(e.target.value)
+    }
+
+    const ProdList3 = (e) => {
+        setlist3(e.target.value)
+    }
+
+    const createProduct = async (e) => {
+        e.preventDefault();
         try {
             const url = `/product`;
-            const d = await axios.post(url, buy);
-            if (d.status === 201) {
-                setbuy(d.data)
-                toast('product created')
-            } else {
-                toast('product not created')
-            }
-        } catch {
-            toast('product not created')
+            const res = await axios.post(url, { name, image, product_name, price, description, description1, list1, list2, list3 });
+            toast(res.data)
+        } catch (error) {
+            toast(error.response.data)
         }
     }
 
     const token = JSON.parse(localStorage.getItem('user'))
+
+
 
     if (token === null) {
         return <Redirect to="/" />
@@ -51,57 +75,68 @@ const CreaProduct = () => {
         return (
             <>
                 <Navbar />
-                <div className="container">
 
-                    <h2>Create Product</h2>
-                    <Form inline>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0 ">
-                            <Label for="examplePassword" className="mr-sm-2">product Name</Label>
-                            <Input type="text" id="name" placeholder='category name' value={buy.name} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="examplePassword" className="mr-sm-2">product image</Label>
-                            <Input type="text" id="image" placeholder="Enter image link" value={buy.image} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product_Name</Label>
-                            <Input type="text" id="product_name" placeholder="product name" value={buy.product_name} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Price</Label>
-                            <Input type="text" id="price" placeholder="price" value={buy.price} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product description</Label>
-                            <Input type="text" id="description" placeholder="product description" value={buy.description} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product description</Label>
-                            <Input type="text" id="description1" placeholder="product description" value={buy.description1} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product List</Label>
-                            <Input type="text" id="list1" placeholder="List" value={buy.list1} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product List</Label>
-                            <Input type="text" id="list2" placeholder="List" value={buy.list2} onChange={buyProduct} />
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="exampleEmail" className="mr-sm-2">Product List</Label>
-                            <Input type="text" id="list3" placeholder="List" value={buy.list3} onChange={buyProduct} />
-                        </FormGroup>
-                        <Button className='btn my-2  btn-success' onClick={buy_Product}>Create</Button>
-                        <ToastContainer />
-                    </Form >
-                </div>
+                <form className='reg_page container'>
+                    <h2 className='text-center'>Create Products</h2>
+                    <hr />
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Select Category</label>
+                        <select name="priority" id="priority" className="form-select" aria-label="Default select example" onChange={category}>
+                            <option selected disabled>Select Category</option>
+                            <option value="Car">Car</option>
+                            <option value="Camera">Camera</option>
+                            <option value="Tripod">Tripod</option>
+                            <option value="Baby Light">Baby Light</option>
+                            <option value="BestView">BestView</option>
+                            <option value="Benro Monopod">Benro Monopod</option>
+                            <option value="Backdrop Stand">Backdrop Stand</option>
+                            <option value="Atomos Showgun">Atomos Showgun</option>
+                        </select>
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Enter Image Link</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Image Link' onChange={ImageFunc} />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Product Name</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Name' onChange={ProductNameFunc} />
+
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Price</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Price' onChange={PriceFunc} />
+
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc} />
+
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc1} />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">List</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product List' onChange={ProdList1} />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">List</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product List' onChange={ProdList2} />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="exampleInputEmail1" className="form-label">List</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product List' onChange={ProdList3} />
+                    </div>
+                    <button onClick={createProduct} className="btn btn-primary createButton">Submit</button>
+                    <ToastContainer />
+                </form>
             </>
         )
 
     } else {
         return <Redirect to="/" />
     }
-
 }
 
-export default CreaProduct
+export default CreateNewProducts;
