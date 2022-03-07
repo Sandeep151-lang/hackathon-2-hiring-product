@@ -82,5 +82,8 @@ router.get('/getdetails', jauth, async function (req, res, next) {
     }
 })
 
+process.on('unhandledRejection', () => {
+    console.log('please')
+})
 
 module.exports = router;
