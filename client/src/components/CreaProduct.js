@@ -109,12 +109,12 @@ const CreateNewProducts = () => {
                     </div>
                     <div className="mb-4">
                         <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc} />
+                        <textarea rows="4" cols="50" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc} />
 
                     </div>
                     <div className="mb-4">
                         <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc1} />
+                        <textarea rows="4" cols="50" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Enter Product Description' onChange={DescFunc1} />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="exampleInputEmail1" className="form-label">List</label>
