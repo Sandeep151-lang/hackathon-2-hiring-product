@@ -105,7 +105,7 @@ const ProductDetails = () => {
                                                                 <p className='tex-center' style={{ 'fontWeight': 'bold' }}>{item.name}</p>
                                                             </div>
                                                             <div>
-                                                                <p className='text-center ml-1' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377; </p>
+                                                                <p className='text-center ml-1' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377;/hr </p>
                                                             </div>
                                                         </div>
                                                         <hr />
@@ -113,7 +113,8 @@ const ProductDetails = () => {
                                                 )
                                             })
                                         }
-
+                                    <p><span style={{ 'fontWeight': 'bold' }}>Start-Time:-</span> {items.starttime}</p>
+                                    <p><span style={{ 'fontWeight': 'bold' }}>End-Time:-</span> {items.endtime}</p>
                                         <br />
                                         <p><span style={{ 'fontWeight': 'bold' }}>Country:-</span> {address.country}</p>
                                         <p><span style={{ 'fontWeight': 'bold' }}>City:-</span> {address.city}</p>
