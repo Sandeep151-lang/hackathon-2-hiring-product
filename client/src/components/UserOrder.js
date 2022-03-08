@@ -84,7 +84,7 @@ const UserOrder = () => {
                                                             <p className='tex-center' style={{ 'fontWeight': 'bold' }}>{item.name}</p>
                                                         </div>
                                                         <div>
-                                                            <p className='text-center' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377; </p>
+                                                            <p className='text-center' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377;/hr </p>
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -92,6 +92,8 @@ const UserOrder = () => {
                                             )
                                         })
                                     }
+                                    <p><span style={{ 'fontWeight': 'bold' }}>Start-Time:-</span> {items.starttime}</p>
+                                    <p><span style={{ 'fontWeight': 'bold' }}>End-Time:-</span> {items.endtime}</p>
                                 </div>
                             </div>
                         </Col>
