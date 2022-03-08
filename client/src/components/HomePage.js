@@ -16,6 +16,7 @@ const HomePage = () => {
     const [loading, setloading] = useState(true);
     const [dat, setdat] = useState([])
     const [search, setsearch] = useState(name)
+     const [category, setcategory] = useState([]);
 
     const data = async () => {
         const res = await axios.get(`/getProducts/?keyword=${search}`)
@@ -29,19 +30,43 @@ const HomePage = () => {
         history.push(`/details/${e._id}`)
     }
     //const context = useContext(MyContext);
+ const categories = async () => {
+        try {
+            const res = await axios.get(`http://localhost:5000/getProduct`)
+            setcategory(res.data.message)
+            setloading(false);
 
+        } catch (err) {
+            console.log(err.response)
+        }
+
+        //console.log(res)
+    }
+
+  
     useEffect(() => {
         data()
+        categories()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [search])
 
 
     return (
         <div className='' style={{ 'position': 'relative' }}>
             <Navbar />
             <Row>
-                <Col sm='2' className='m-4 w3-card-4'>
-                    <input type="text" class="form-control" placeholder='search' id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => { setsearch(e.target.value) }} onKeyPress={(e) => e.key === 'Enter' ? data() : null} />
+                <Col sm='2' className='m-4 w3-card-4' style={{ 'height': '100%' }}>
+                    <input type="text" className="form-control mt-3" placeholder='search' id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => { setsearch(e.target.value) }} onKeyPress={(e) => e.key === 'Enter' ? data() : null} />
+                    <ul>
+                        {
+                            category.map((item, key) => {
+                                return <>
+                                    {/* <button onClick={(e) => setsearch(item.name)} value={item.name} type="text" className="form-control mt-3" >{item.name}</button> */}
+                                    <li onClick={(e) => setsearch(item.name)} value={item.name} type="text" className="list-category mt-3" >{item.name}</li>
+                                </>
+                            })
+                        }
+                    </ul>
                 </Col>
                 {loading ? <LoadingSpinner /> : <>
                     {dat.map((product, key) => {
