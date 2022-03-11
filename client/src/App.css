@@ -12,14 +12,34 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.card-category{
+  background-color: rgba(240, 248, 255, 0.604);
+  border: 1px solid rgba(210, 219, 226, 0.611);
+}
 .list-category{
   cursor: pointer;
   font-weight: bold;
 }
 .list-category:hover{
-  color: rgb(76, 24, 209)
+  color: rgb(59, 163, 59)
 }
+.footer-component{
+  background-color: aliceblue;
+  color:rgb(140, 140, 163)
+}
+.footer-component h4{
+  color:rgb(140, 140, 163);
+}
+/* .foot{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    color: white;
+   
+} */
+
+
 @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
 /* @import "../node_modules/@syncfusion/ej2-buttons/styles/material.css"; */
 @import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
@@ -49,7 +69,7 @@ max-height: 300px;  /* change this to whatever you want */
   height: 250px;
 } */
 .category  :hover{
-transform: scale(1.1);
+transform: scale(1.04);
 cursor: pointer;
 }
 
@@ -63,6 +83,7 @@ cursor: pointer;
  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(189, 139, 139));
 
 }
+
 .createButton{
   width: 100%!important;
   margin-bottom: 50px;
