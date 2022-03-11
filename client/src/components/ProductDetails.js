@@ -105,7 +105,7 @@ const ProductDetails = () => {
                                                                 <p className='tex-center' style={{ 'fontWeight': 'bold' }}>{item.name}</p>
                                                             </div>
                                                             <div>
-                                                                <p className='text-center ml-1' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377;/hr </p>
+                                                                <p className='text-center ml-1' style={{ 'fontWeight': 'bold', 'color': 'green' }}> &#8377;{item.price}/hr </p>
                                                             </div>
                                                         </div>
                                                         <hr />
