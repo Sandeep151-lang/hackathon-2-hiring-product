@@ -18,7 +18,7 @@ const UserDetails = () => {
     };
     const userdata = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/user?page=${pageNumbers}`);
+            const res = await axios.get(`/user?page=${pageNumbers}`);
 
             setuser(res.data.item)
             setnumberofPages(res.data.totalPages);
@@ -34,7 +34,7 @@ const UserDetails = () => {
     const onChangeInput = async (value, item) => {
 
         try {
-            await axios.put('http://localhost:5000/userUpdate', { value, item })
+            await axios.put('/userUpdate', { value, item })
             userdata()
 
         } catch (error) {
