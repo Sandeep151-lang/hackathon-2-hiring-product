@@ -95,7 +95,7 @@ const Cart = () => {
                                                 </div>
                                                 <div className="col-md-8">
                                                     <div className="card-body">
-                                                        <h5 className="card-title">{product_name}</h5>
+                                                        <h5 className="card-title" style={{ 'overflow': 'hidden', 'whiteSpace': 'nowrap', 'textOverflow': 'ellipsis' }}>{product_name}</h5>
 
                                                         <p className="card-text"><small className="text-muted">&#8377;{price}/hr</small></p>
                                                         <p className="card-text">  <Button className="btn btn-success" onClick={() => context.onRemove(product)}>Remove from Cart</Button></p>
