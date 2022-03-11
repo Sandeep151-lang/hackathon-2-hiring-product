@@ -130,6 +130,9 @@ const Navbar = () => {
                                     <NavLink className='nav-link' to="/dashboard">Admin-Dashboard</NavLink>
                                 </li>
                                 <li className="nav-item">
+                                    <NavLink className='nav-link' to="/user">User-List</NavLink>
+                                </li>
+                                <li className="nav-item">
                                     <NavLink className='nav-link' to="/logout">Logout</NavLink>
                                 </li>
                                 <li className="nav-item">
