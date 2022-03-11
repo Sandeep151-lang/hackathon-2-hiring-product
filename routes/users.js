@@ -75,12 +75,18 @@ router.route('/login').post(async (req, res) => {
 
 
 //GET METHOD  ALL THE USERS LIST
-router.get('/user', async function (req, res, next) {
-  await User.find().then((doc) => {
-    return res.send({ item: doc })
-  })
-});
-
+router.get('/user', async function (req, res) {
+  const PAGE_SOZE = 5;
+  const page = parseInt(req.query.page || "0");
+  const total = await User.countDocuments({});
+  try {
+    await User.find().limit(PAGE_SOZE).skip(PAGE_SOZE * page).then((doc) => {
+      res.status(200).json({ item: doc, totalPages: Math.ceil(total / PAGE_SOZE) })
+    })
+  } catch {
+    res.json({ message: `error` })
+  }
+})
 
 //GET THE USERS DETAILS AFTER LOGIN
 router.get('/about', jwtAuth, (req, res) => {
