@@ -90,7 +90,7 @@ const ProductDetails = () => {
                                     <div className="w3-container">
                                         <div className='d-flex flex justify-content-between'>
                                             <caption>Products List</caption>
-                                            <caption>Total:<span style={{ 'fontWeight': 'bold', 'color': 'red' }}> {items.total}/-&#8377;</span></caption>
+                                            <caption>Total:<span style={{ 'fontWeight': 'bold', 'color': 'red' }}> &#8377;{items.total}/-</span></caption>
                                         </div>
                                         <hr />
                                         {
