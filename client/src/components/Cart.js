@@ -113,14 +113,14 @@ const Cart = () => {
                             <ToastContainer />
                         </Col>
                         {starttime !== null ? <Col xs="4">
-                            <h3 className='mt-5'>Rent Price :<small className="text-muted">{price}&#8377;/hr</small></h3>
+                            <h3 className='mt-5'>Rent Price :<small className="text-muted">&#8377;{price}/hr</small></h3>
                             <hr />
                             <p> <span style={{ 'fontSize': '20px' }}>StartTime : </span> <strong>{starttime}</strong></p>
                             <p>EndTime : <strong>{endtime}</strong></p>
                             <p>Total Hours : <strong>{Total}</strong></p>
                             <p>Total  <strong>({ar.length} item)</strong></p>
                             <hr />
-                            <h3 className='mt-5'>Total Amount : <span style={{ 'color': 'red' }}><small style={{ 'color': 'red' }}>{Price}/-&#8377;</small></span></h3>
+                            <h3 className='mt-5'>Total Amount : <span style={{ 'color': 'red' }}><small style={{ 'color': 'red' }}>&#8377;{Price}/-</small></span></h3>
                             <hr />
                             <Stripe total={Price}
                                 name={data.name}
