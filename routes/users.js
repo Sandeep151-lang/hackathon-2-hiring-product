@@ -88,6 +88,16 @@ router.get('/user', async function (req, res) {
   }
 })
 
+router.put('/userUpdate', async (req, res) => {
+  let { value, item } = req.body
+  try {
+    const upd = await User.findOneAndUpdate({ _id: item }, { $set: { role: value } })
+    res.send(upd)
+  } catch {
+    return res.status(400).json({ message: 'error' })
+  }
+})
+
 //GET THE USERS DETAILS AFTER LOGIN
 router.get('/about', jwtAuth, (req, res) => {
   res.json({ message: req.rootUser })
