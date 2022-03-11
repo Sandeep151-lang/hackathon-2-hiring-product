@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
 import Navbar from './Navbar';
+import FooterComponent from './FooterComponent';
 import { message } from 'antd';
 
 
@@ -84,6 +85,7 @@ const HomePages = () => {
                 </Row>}
 
             </div>
+            <FooterComponent />
             <Footer />
         </>
     )
