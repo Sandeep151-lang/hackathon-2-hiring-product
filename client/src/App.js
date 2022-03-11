@@ -18,6 +18,7 @@ import Logout from './components/Logout'
 import MyOrder from './components/MyOrder';
 import UserOrder from './components/UserOrder';
 import AdminDashboard from './components/AdminDashboard';
+import UserDetails from './components/UserDetails';
 import './App.css'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -77,6 +78,7 @@ function App() {
           <Route path='/user/:_id' component={UserOrder} />
           <Route path='/dashboard' component={AdminDashboard} />
           <Route path="/products/:_id" component={ProductDetails} />
+          <Route path="/user" component={UserDetails} />
           <Redirect to="/" />
         </Switch>
       </MyContext.Provider>
