@@ -69,7 +69,7 @@ const UserOrder = () => {
                                 <div className='w3-card-4 container'>
                                     <div className='d-flex flex justify-content-between'>
                                         <caption>Products List</caption>
-                                        <caption>Total:<span style={{ 'fontWeight': 'bold', 'color': 'red' }}> {items.total}/- &#8377;</span></caption>
+                                        <caption>Total:<span style={{ 'fontWeight': 'bold', 'color': 'red' }}> &#8377;{items.total}/- </span></caption>
                                     </div>
                                     <hr />
                                     {
@@ -84,7 +84,7 @@ const UserOrder = () => {
                                                             <p className='tex-center' style={{ 'fontWeight': 'bold' }}>{item.name}</p>
                                                         </div>
                                                         <div>
-                                                            <p className='text-center' style={{ 'fontWeight': 'bold', 'color': 'green' }}>{item.price}/- &#8377;/hr </p>
+                                                            <p className='text-center' style={{ 'fontWeight': 'bold', 'color': 'green' }}> &#8377;{item.price}/hr </p>
                                                         </div>
                                                     </div>
                                                     <hr />
