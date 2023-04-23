@@ -6,7 +6,7 @@
     "node": "16"
   },
   "scripts": {
-    "start": "nodemon ./app.js"
+    "start": "node ./app.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
