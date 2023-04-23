@@ -43,15 +43,18 @@ app.use(function (req, res, next) {
   next()
 })
 
+app.get('/test/list',(req,res)=>{
+  res.send('hello')
+})
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', payment)
 app.use('/', createProduct);
 
 
-app.listen(process.env.PORT || 5000, (err,d)=>{
+app.listen( 5000, (err,d)=>{
   if(err) console.log(err)
-  console.log(`server is running in port ${process.env.PORT}`)
+  console.log(`server is running in port ${500}`)
 })
 
 
