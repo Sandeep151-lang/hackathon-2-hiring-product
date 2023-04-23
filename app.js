@@ -28,12 +28,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const corsOptions = {
-  origin: true, //included origin as true
-  credentials: true, //included credentials as true
-};
-app.use(cors(corsOptions));
- app.use('/', indexRouter);
+// const corsOptions = {
+//   origin: true, //included origin as true
+//   credentials: true, //included credentials as true
+// };
+// app.use(cors(corsOptions));
+app.use(cors({origin:"*"}))
+
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header('Access-Control-Allow-Credentials', false);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  next()
+})
+
+app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', payment)
 app.use('/', createProduct);
