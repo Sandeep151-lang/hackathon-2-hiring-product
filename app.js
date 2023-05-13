@@ -1,6 +1,8 @@
 
 var express = require('express');
 var app = express();
+const bodyParser = require('body-parser');
+
 //var path = require('path');
 //var logger = require('morgan');
 var createProduct = require('./routes/createProduct')
@@ -14,7 +16,10 @@ const cors = require("cors");
 require('./routes/dbConn.js/conn')
 
     app.use(cors({origin:"*"}))
-
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    
 
     app.use(function (req, res, next) {
       res.header("Access-Control-Allow-Headers", "*");
@@ -27,9 +32,9 @@ require('./routes/dbConn.js/conn')
       res.send('hello')
     })
     app.use('/', indexRouter);
-    app.use('/', usersRouter);
-    app.use('/', payment)
-    app.use('/', createProduct);
+    app.use('/user', usersRouter);
+    app.use('/payment', payment)
+    app.use('/product', createProduct);
     
     
     app.listen( 5000, (err,d)=>{

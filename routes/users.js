@@ -57,7 +57,6 @@ router.route('/login').post(async (req, res) => {
         })
         const { name, email } = singin;
 
-        console.log(name, email)
         if (!isMatch) {
           return res.status(400).json({ message: 'Invalid' })
         } else {
